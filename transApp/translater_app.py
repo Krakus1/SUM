@@ -2,7 +2,7 @@ import streamlit as st
 from transformers import T5ForConditionalGeneration, T5Tokenizer, MarianMTModel, MarianTokenizer
 
 # Globalna zmienna do włączania/wyłączania debugowania
-DEBUG = True
+DEBUG = False
 
 # Mapa wyboru modeli
 model_map = {
@@ -56,6 +56,7 @@ def translate_text(text, model, tokenizer, model_name):
 
 # Interfejs użytkownika Streamlit
 st.title("Translator from English to German")
+st.info("Aplikacja służy do przetłumaczenia słów/zwrotów angielskich na jezyk niemiecki z możliwością wyboru modelu :)")
 
 # Opcja wyboru modelu przez użytkownika
 model_choice = st.selectbox("Choose a translation model", ["Google", "Helsinki-NLP"])
@@ -82,7 +83,4 @@ if st.button("Translate"):
             except Exception as e:
                 st.error(f"Translation failed: {e}")
 
-# Opcja włączania/wyłączania debugowania
-DEBUG = st.checkbox("Enable debugging", value=True)
-
-st.write("This application uses the T5 model or Helsinki-NLP model to translate text from English to German.")
+st.write("This app is created by S23942")
