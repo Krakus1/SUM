@@ -60,7 +60,7 @@ option = st.selectbox(
     "Opcje",
     [
         "Wydźwięk emocjonalny tekstu (eng)",
-        "???",
+        "Słowniczek angielsko-niemiecki",
     ],
 )
 
@@ -68,6 +68,12 @@ if option == "Wydźwięk emocjonalny tekstu (eng)":
     text = st.text_area(label="Wpisz tekst")
     if text:
         classifier = pipeline("sentiment-analysis")
+        answer = classifier(text)
+        st.write(answer)
+if option == "Słowniczek angielsko-niemiecki":
+    text = st.text_area(label="Wpisz tekst")
+    if text:
+        classifier = pipeline("translation", model="Helsinki-NLP/opus-mt-de-en")
         answer = classifier(text)
         st.write(answer)
 
