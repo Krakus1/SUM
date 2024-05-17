@@ -1,5 +1,5 @@
 import streamlit as st
-from transformers import T5ForConditionalGeneration, T5Tokenizer, MarianMTModel, MarianTokenizer
+import transformers
 
 # Globalna zmienna do włączania/wyłączania debugowania
 DEBUG = False
@@ -14,11 +14,11 @@ model_map = {
 @st.cache_resource
 def load_model(model_name):
     if model_name == 't5-large':
-        model = T5ForConditionalGeneration.from_pretrained(model_name)
-        tokenizer = T5Tokenizer.from_pretrained(model_name)
+        model = transformers.T5ForConditionalGeneration.from_pretrained(model_name)
+        tokenizer = transformers.T5Tokenizer.from_pretrained(model_name)
     elif model_name == 'Helsinki-NLP/opus-mt-en-de':
-        model = MarianMTModel.from_pretrained(model_name)
-        tokenizer = MarianTokenizer.from_pretrained(model_name)
+        model = transformers.MarianMTModel.from_pretrained(model_name)
+        tokenizer = transformers.MarianTokenizer.from_pretrained(model_name)
     else:
         raise ValueError("Model not supported")
     return model, tokenizer
