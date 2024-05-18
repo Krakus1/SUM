@@ -1,5 +1,5 @@
 import streamlit as st
-import transformers
+from transformers import T5ForConditionalGeneration, T5Tokenizer, MarianMTModel, MarianTokenizer
 
 # Globalna zmienna do włączania/wyłączania debugowania
 DEBUG = False
@@ -14,11 +14,11 @@ model_map = {
 @st.cache_resource
 def load_model(model_name):
     if model_name == 't5-base':
-        model = transformers.T5ForConditionalGeneration.from_pretrained(model_name)
-        tokenizer = transformers.T5Tokenizer.from_pretrained(model_name)
+        model = T5ForConditionalGeneration.from_pretrained(model_name)
+        tokenizer = T5Tokenizer.from_pretrained(model_name)
     elif model_name == 'Helsinki-NLP/opus-mt-en-de':
-        model = transformers.MarianMTModel.from_pretrained(model_name)
-        tokenizer = transformers.MarianTokenizer.from_pretrained(model_name)
+        model = MarianMTModel.from_pretrained(model_name)
+        tokenizer = MarianTokenizer.from_pretrained(model_name)
     else:
         raise ValueError("Model not supported")
     return model, tokenizer
@@ -59,7 +59,7 @@ st.title("Translator from English to German")
 st.info("Aplikacja służy do przetłumaczenia słów/zwrotów angielskich na jezyk niemiecki z możliwością wyboru modelu :)")
 
 # Opcja wyboru modelu przez użytkownika
-model_choice = st.selectbox("Choose a translation model", ["Google", "Helsinki-NLP"])
+model_choice = st.selectbox("Choose a translation model", ["Helsinki-NLP", "Google"])
 
 # Mapowanie wyboru na nazwę modelu
 model_name = model_map[model_choice]
