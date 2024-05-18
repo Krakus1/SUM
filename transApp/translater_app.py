@@ -6,14 +6,14 @@ DEBUG = False
 
 # Mapa wyboru modeli
 model_map = {
-    "Google": "t5-large",
+    "Google": "t5-base",
     "Helsinki-NLP": "Helsinki-NLP/opus-mt-en-de"
 }
 
 # Funkcja do ładowania modelu i tokenizera
 @st.cache_resource
 def load_model(model_name):
-    if model_name == 't5-large':
+    if model_name == 't5-base':
         model = transformers.T5ForConditionalGeneration.from_pretrained(model_name)
         tokenizer = transformers.T5Tokenizer.from_pretrained(model_name)
     elif model_name == 'Helsinki-NLP/opus-mt-en-de':
@@ -25,7 +25,7 @@ def load_model(model_name):
 
 # Funkcja do tłumaczenia tekstu
 def translate_text(text, model, tokenizer, model_name):
-    if model_name == 't5-large':
+    if model_name == 't5-base':
         input_text = f'translate English to German: {text}'
     elif model_name == 'Helsinki-NLP/opus-mt-en-de':
         input_text = text
