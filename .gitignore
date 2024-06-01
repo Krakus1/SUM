@@ -1,0 +1,9 @@
+Include/
+Lib/
+Scripts/
+pyvenv.
+share/
+pyvenv.cfg
+bin/
+lib/
+lib64/
