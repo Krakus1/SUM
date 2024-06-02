@@ -51,9 +51,3 @@ async def get_prediction(data: Point, model_name='our_model'):
 
 if __name__ == '__main__':
     uvicorn.run(app, host='127.0.0.1', port=8008)
-
-
-    # PRACA DOMOWA:
-    # Zbuduj kontener
-    # Odpal apke z przeglądarki, odpaloną na dockerze
-    # Screenshot z przeglądarki i z wynikiem z budowania kontenera dockera
