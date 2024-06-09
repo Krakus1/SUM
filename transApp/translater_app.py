@@ -55,7 +55,7 @@ def translate_text(text, model, tokenizer, model_name):
     return translated_text
 
 # Interfejs użytkownika Streamlit
-st.image('https://github.com/Krakus1/SUM/blob/main/transApp/tranApp.png', caption='Translate be better')
+st.image('https://store-images.s-microsoft.com/image/apps.50108.14056881113182363.a95f37ff-7b9d-43ff-8072-2df8de461120.41ab5e02-0179-47ac-b4fb-6bf5ab010ca2?h=210', caption='Translate be better')
 st.title("Translator from English to German")
 st.info("Aplikacja służy do przetłumaczenia słów/zwrotów angielskich na jezyk niemiecki z możliwością wyboru modelu :)")
 
