@@ -5,7 +5,7 @@ from datetime import datetime
 
 startTime = datetime.now()
 
-filename = "model.h5"
+filename = "C:\\Users\\vbaAp\\Documents\\Studia\\SUML\\SUM\\Lab5\\model.h5"
 model = pickle.load(open(filename, "rb"))
 
 sex_d = {0: "Kobieta", 1:"Mężczyzna"}
