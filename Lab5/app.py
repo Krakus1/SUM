@@ -6,7 +6,7 @@ import streamlit as st
 startTime = datetime.now()
 # import znanych nam bibliotek
 
-filename = "model.h5"
+filename = "https://github.com/Krakus1/SUM/blob/main/Lab5/model.h5"
 model = pickle.load(open(filename, 'rb'))
 # otwieramy wcześniej wytrenowany model
 
