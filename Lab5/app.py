@@ -5,6 +5,9 @@ from datetime import datetime
 
 startTime = datetime.now()
 
+import os
+st.write("Current working directory:", os.getcwd())
+
 filename = "model.h5"
 model = pickle.load(open(filename, "rb"))
 
