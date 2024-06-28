@@ -8,7 +8,7 @@ startTime = datetime.now()
 import os
 st.write("Current working directory:", os.getcwd())
 
-filename = "model.h5"
+filename = "/mount/src/sum/model.h5"
 model = pickle.load(open(filename, "rb"))
 
 sex_d = {0: "Kobieta", 1:"Mężczyzna"}
